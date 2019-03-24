@@ -25,8 +25,17 @@ public class MainCharacterController : MonoBehaviour
         // Input is calculated in Update since it runs every frame and 
         //  therefore, will not miss registering a pressed key(as opposed to
         //  having key presses in FixedUpdate which does not run every frame)
-        CheckInput();
-        UpdateDirection();
+        if (GetInput())
+        {
+            UpdateDirection();
+            animator.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            animator.SetLayerWeight(0, 1);
+            animator.SetLayerWeight(1, 0);
+
+        }
 
     }
 
@@ -34,8 +43,35 @@ public class MainCharacterController : MonoBehaviour
     void FixedUpdate()
     {
         // Set parameters for sprite animation movement
-        AnimateMovement();
         Move();
+    }
+
+
+    // Returns true iff input has been recieved
+    bool GetInput()
+    {
+        // GetAxisRaw() is used so character movement immediately reflects input
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+
+        return System.Math.Abs(horizontal) > 0 ||
+            System.Math.Abs(horizontal) < 0 ||
+            System.Math.Abs(vertical) > 0 ||
+            System.Math.Abs(vertical) < 0;
+    }
+
+
+    void UpdateDirection()
+    {
+        xDirection = horizontal;
+        yDirection = vertical;
+    }
+
+
+    void AnimateMovement()
+    {
+        animator.SetFloat("idleUp", yDirection);
+        animator.SetFloat("idleRight", xDirection);
     }
 
 
@@ -49,35 +85,6 @@ public class MainCharacterController : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
-    }
-
-
-    void CheckInput()
-    {
-        // GetAxisRaw() is used so character movement immediately reflects input
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-    }
-
-
-    void UpdateDirection()
-    {
-        // Only update direction when input is pressed
-        // If no input is recieved do not update directions
-        if (System.Math.Abs(horizontal) > 0 ||
-            System.Math.Abs(horizontal) < 0||
-            System.Math.Abs(vertical) > 0 ||
-            System.Math.Abs(vertical) < 0)
-        {
-            xDirection = horizontal;
-            yDirection = vertical;
-        }
-    }
-
-
-    void AnimateMovement()
-    {
-        animator.SetFloat("idleUp", yDirection);
-        animator.SetFloat("idleRight", xDirection);
+        AnimateMovement();
     }
 }
