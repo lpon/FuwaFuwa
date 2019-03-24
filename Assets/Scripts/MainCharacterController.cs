@@ -65,7 +65,7 @@ public class MainCharacterController : MonoBehaviour
         // Only update direction when input is pressed
         // If no input is recieved do not update directions
         if (System.Math.Abs(horizontal) > 0 ||
-            System.Math.Abs(horizontal) < 0 ||
+            System.Math.Abs(horizontal) < 0||
             System.Math.Abs(vertical) > 0 ||
             System.Math.Abs(vertical) < 0)
         {
