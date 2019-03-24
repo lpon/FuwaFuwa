@@ -5,9 +5,11 @@ public class MainCharacterController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
-    int horizontal;
-    int vertical;
+    float horizontal;
+    float vertical;
     float moveLimiter = 0.7f;
+    float xDirection = 0f;
+    float yDirection = 1f;
 
     public float speed;
 
@@ -23,65 +25,59 @@ public class MainCharacterController : MonoBehaviour
         // Input is calculated in Update since it runs every frame and 
         //  therefore, will not miss registering a pressed key(as opposed to
         //  having key presses in FixedUpdate which does not run every frame)
-
-        // GetAxisRaw() is used so character movement immediately reflects input
-        horizontal = (int) Input.GetAxisRaw("Horizontal");
-        vertical = (int) Input.GetAxisRaw("Vertical");
+        CheckInput();
+        UpdateDirection();
 
     }
 
 
     void FixedUpdate()
     {
-        Debug.Log(horizontal);
-        Debug.Log(vertical);
-
         // Set parameters for sprite animation movement
-        animateMainCharacter();
-        moveMainCharacter();
+        AnimateMovement();
+        Move();
     }
 
 
-    void moveMainCharacter()
+    void Move()
     {
         // Check for diagonal movement
         if (horizontal > 0 && vertical > 0)
         {
-            rb.velocity = new Vector2(
-                                        (float) horizontal * moveLimiter * speed,
-                                        (float) vertical * moveLimiter * speed
-                                    );
-        }
-        else
-        {
-            rb.velocity = new Vector2(horizontal * speed, vertical * speed);
+            horizontal *= moveLimiter;
+            vertical *= moveLimiter;
         }
 
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
 
-    void animateMainCharacter()
+    void CheckInput()
     {
-        animator.SetBool("walkUp", false);
-        animator.SetBool("walkDown", false);
-        animator.SetBool("walkLeft", false);
-        animator.SetBool("walkRight", false);
+        // GetAxisRaw() is used so character movement immediately reflects input
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+    }
 
-        if (vertical > 0)
+
+    void UpdateDirection()
+    {
+        // Only update direction when input is pressed
+        // If no input is recieved do not update directions
+        if (System.Math.Abs(horizontal) > 0 ||
+            System.Math.Abs(horizontal) < 0 ||
+            System.Math.Abs(vertical) > 0 ||
+            System.Math.Abs(vertical) < 0)
         {
-            animator.SetBool("walkUp", true);
+            xDirection = horizontal;
+            yDirection = vertical;
         }
-        if (vertical < 0)
-        {
-            animator.SetBool("walkDown", true);
-        }
-        if (horizontal > 0)
-        {
-            animator.SetBool("walkRight", true);
-        }
-        if (horizontal < 0)
-        {
-            animator.SetBool("walkLeft", true);
-        }
+    }
+
+
+    void AnimateMovement()
+    {
+        animator.SetFloat("idleUp", yDirection);
+        animator.SetFloat("idleRight", xDirection);
     }
 }
