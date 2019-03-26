@@ -12,11 +12,13 @@ public class MainCharacterController : MonoBehaviour
     float yDirection = 1f;
 
     public float speed;
+    public bool canMove;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        canMove = true;
     }
 
 
@@ -28,21 +30,20 @@ public class MainCharacterController : MonoBehaviour
         if (GetInput())
         {
             UpdateDirection();
+            // Set Walk Layer to 1
             animator.SetLayerWeight(1, 1);
         }
         else
         {
+            // Set Idle Layer to 1 using last stored directions
             animator.SetLayerWeight(0, 1);
             animator.SetLayerWeight(1, 0);
-
         }
-
     }
 
 
     void FixedUpdate()
     {
-        // Set parameters for sprite animation movement
         Move();
     }
 
@@ -50,6 +51,16 @@ public class MainCharacterController : MonoBehaviour
     // Returns true iff input has been recieved
     bool GetInput()
     {
+        // If the player cannot move then ignore all input
+        // This will set the player to idle in the last direction stored
+        if (!canMove)
+        {
+            horizontal = 0f;
+            vertical = 0f;
+
+            return false;
+        } 
+
         // GetAxisRaw() is used so character movement immediately reflects input
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
