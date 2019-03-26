@@ -88,8 +88,20 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueField.text += c;
             // Wait a single frame after each letter is appended to the field
-            yield return null;
+            yield return StartCoroutine(WaitFor.Frames(2));
 
+        }
+    }
+}
+
+public static class WaitFor
+{
+    public static IEnumerator Frames(int frameCount)
+    {
+        while (frameCount > 0)
+        {
+            frameCount--;
+            yield return null;
         }
     }
 }

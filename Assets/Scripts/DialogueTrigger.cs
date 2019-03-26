@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    DialogueManager dialogueManager;
+    private DialogueManager dialogueManager;
+    private int nextDialogue = 0;
 
     // Assumes that there will only be one dialogue per DialogueTrigger
-    public Dialogue dialogue;
+    public Dialogue[] dialogues;
+
 
 
     private void Start()
@@ -16,7 +18,11 @@ public class DialogueTrigger : MonoBehaviour
 
 
     public void AddDialogue() {
-        dialogueManager.AddDialogue(dialogue);
+        if (dialogues.Length > 0 && nextDialogue < dialogues.Length)
+        {
+            dialogueManager.AddDialogue(dialogues[nextDialogue]);
+            nextDialogue++;
+        } 
     }
 
 
