@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueField;
     public Canvas dialogueCanvas;
     public Image dialogueBox;
+    public bool dialogueOccuring;
 
 
     void Start()
@@ -23,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     // Add multiple dialogues that will be processed one-at-a-time
     public void AddDialogue(Dialogue dialogue)
     {
+        Debug.Log("Adding Dialogue");
         foreach (string sentence in dialogue.sentences)
         {
             string[] line = new string[2];
@@ -37,6 +39,8 @@ public class DialogueManager : MonoBehaviour
     // Method to process a single dialogue (from a single character at a time)
     public void StartDialogue()
     {
+        Debug.Log("Starting Dialogue");
+        dialogueOccuring = true;
         dialogueField.text = "";
         nameField.text = "";
         EnableDialogueUI(true);
@@ -67,6 +71,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        dialogueOccuring = false;
         EnableDialogueUI(false);
         sentences.Clear();
     }
@@ -89,10 +94,10 @@ public class DialogueManager : MonoBehaviour
             dialogueField.text += c;
             // Wait a single frame after each letter is appended to the field
             yield return StartCoroutine(WaitFor.Frames(2));
-
         }
     }
 }
+
 
 public static class WaitFor
 {

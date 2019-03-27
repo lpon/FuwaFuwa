@@ -4,30 +4,47 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
-    private int nextDialogue = 0;
+    private bool inDialogueTriggerRange;
+
 
     // Assumes that there will only be one dialogue per DialogueTrigger
-    public Dialogue[] dialogues;
-
+    public Dialogue dialogue;
 
 
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        inDialogueTriggerRange = false;
     }
 
-
-    public void AddDialogue() {
-        if (dialogues.Length > 0 && nextDialogue < dialogues.Length)
-        {
-            dialogueManager.AddDialogue(dialogues[nextDialogue]);
-            nextDialogue++;
-        } 
-    }
-
-
-    public void StartDialogue()
+    private void Update()
     {
-        dialogueManager.StartDialogue();
+        if (Input.GetKeyUp("space") && inDialogueTriggerRange)
+        {
+            Debug.Log("About to begin Dialogue");
+            dialogueManager.AddDialogue(dialogue);
+            dialogueManager.StartDialogue();
+
+        };
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Girl"))
+        {
+            Debug.Log("Girl in trigger range");
+            inDialogueTriggerRange = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Girl"))
+        {
+            Debug.Log("Girl outside trigger range");
+            inDialogueTriggerRange = false;
+        }
     }
 }
