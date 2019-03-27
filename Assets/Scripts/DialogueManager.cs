@@ -24,7 +24,6 @@ public class DialogueManager : MonoBehaviour
     // Add multiple dialogues that will be processed one-at-a-time
     public void AddDialogue(Dialogue dialogue)
     {
-        Debug.Log("Adding Dialogue");
         foreach (string sentence in dialogue.sentences)
         {
             string[] line = new string[2];
@@ -39,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     // Method to process a single dialogue (from a single character at a time)
     public void StartDialogue()
     {
-        Debug.Log("Starting Dialogue");
         dialogueOccuring = true;
         dialogueField.text = "";
         nameField.text = "";

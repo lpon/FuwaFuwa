@@ -5,6 +5,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool inDialogueTriggerRange;
+    private bool dialogueOccured = false;
 
 
     // Assumes that there will only be one dialogue per DialogueTrigger
@@ -19,9 +20,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp("space") && inDialogueTriggerRange)
+        if (Input.GetKeyUp("space") && inDialogueTriggerRange && !dialogueOccured)
         {
-            Debug.Log("About to begin Dialogue");
+            dialogueOccured = true;
+
             dialogueManager.AddDialogue(dialogue);
             dialogueManager.StartDialogue();
 
@@ -33,7 +35,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Girl"))
         {
-            Debug.Log("Girl in trigger range");
             inDialogueTriggerRange = true;
         }
 
@@ -43,7 +44,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Girl"))
         {
-            Debug.Log("Girl outside trigger range");
             inDialogueTriggerRange = false;
         }
     }
