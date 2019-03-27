@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<string[]> sentences;
+    private Queue<Line> lines;
     private bool dialogueInProgress;
 
     public Text nameField;
@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        sentences = new Queue<string[]>();
+        lines = new Queue<Line>();
         dialogueInProgress = false;
         EnableDialogueUI(false);
 
@@ -38,13 +38,9 @@ public class DialogueManager : MonoBehaviour
     // Add multiple dialogues that will be processed one-at-a-time
     public void AddDialogue(Dialogue dialogue)
     {
-        foreach (string sentence in dialogue.sentences)
+        foreach (Line line in dialogue.lines)
         {
-            string[] line = new string[2];
-            line[0] = dialogue.name;
-            line[1] = sentence;
-
-            sentences.Enqueue(line);
+            lines.Enqueue(line);
         }
     }
 
@@ -65,16 +61,16 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0)
+        if (lines.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string[] line = sentences.Dequeue();
+        Line line = lines.Dequeue();
 
-        nameField.text = line[0];
-        string sentence = line[1];
+        nameField.text = line.characterName;
+        string sentence = line.text;
 
         // Make sure that everytime DisplayNextSentence is called, TypeSentence starts from scratch
         // This is to prevent a player clicking continue before a full sentence has been typed out
@@ -86,7 +82,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         EnableDialogueUI(false);
-        sentences.Clear();
+        lines.Clear();
         dialogueInProgress = true;
     }
 

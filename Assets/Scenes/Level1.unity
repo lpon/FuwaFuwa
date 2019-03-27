@@ -8543,9 +8543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameField: {fileID: 659439057}
   dialogueField: {fileID: 423274565}
-  dialogueCanvas: {fileID: 1442937233}
-  dialogueBox: {fileID: 1026887465}
-  dialogueOccuring: 0
+  dialogueUI: {fileID: 2109376846}
 --- !u!4 &1173105501
 Transform:
   m_ObjectHideFlags: 0
@@ -16409,10 +16407,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Boy
-    sentences:
-    - "Hey Tammie!\t"
-    - I was just about to leave...
+    lines:
+    - characterName: Boy
+      text: "Hey!\t"
+    - characterName: Boy
+      text: I was just about to head out for the day...
+    - characterName: Boy
+      text: My dad left work early to take me suit shopping for the dance tomorrow!
+    - characterName: Boy
+      text: What's up?
+    - characterName: Girl
+      text: Oh, well... I was just wondering...
+    - characterName: Girl
+      text: '.......................'
+    - characterName: Girl
+      text: Actually, nevemind! It's not important.
+    - characterName: Boy
+      text: '...Are you sure? You can ask me!'
+    - characterName: Girl
+      text: Well... I was wondering...
+    - characterName: Girl
+      text: ifyouwanttogotothedancewithme .. ._.
 --- !u!61 &1405821779
 BoxCollider2D:
   m_ObjectHideFlags: 0
