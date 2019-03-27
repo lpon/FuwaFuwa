@@ -9,9 +9,7 @@ public class DialogueManager : MonoBehaviour
 
     public Text nameField;
     public Text dialogueField;
-    public Canvas dialogueCanvas;
-    public Image dialogueBox;
-    public bool dialogueOccuring;
+    public GameObject dialogueUI;
 
 
     void Start()
@@ -38,7 +36,6 @@ public class DialogueManager : MonoBehaviour
     // Method to process a single dialogue (from a single character at a time)
     public void StartDialogue()
     {
-        dialogueOccuring = true;
         dialogueField.text = "";
         nameField.text = "";
         EnableDialogueUI(true);
@@ -69,7 +66,6 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        dialogueOccuring = false;
         EnableDialogueUI(false);
         sentences.Clear();
     }
@@ -79,8 +75,7 @@ public class DialogueManager : MonoBehaviour
     {
         nameField.enabled = isEnabled;
         dialogueField.enabled = isEnabled;
-        dialogueBox.enabled = isEnabled;
-        dialogueCanvas.enabled = isEnabled;
+        dialogueUI.SetActive(isEnabled);
     }
 
 
