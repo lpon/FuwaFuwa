@@ -6,16 +6,32 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string[]> sentences;
+    private bool dialogueInProgress;
 
     public Text nameField;
     public Text dialogueField;
     public GameObject dialogueUI;
 
 
-    void Start()
+    private void Start()
     {
-        this.sentences = new Queue<string[]>();
+        sentences = new Queue<string[]>();
+        dialogueInProgress = false;
         EnableDialogueUI(false);
+
+    }
+
+
+    private void Update()
+    {
+        if (dialogueInProgress)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                DisplayNextSentence();
+            }
+        }
+
     }
 
 
@@ -40,7 +56,10 @@ public class DialogueManager : MonoBehaviour
         nameField.text = "";
         EnableDialogueUI(true);
 
+        // Display the first line of dialogue
         DisplayNextSentence();
+
+        dialogueInProgress = true;
     }
 
 
@@ -68,6 +87,7 @@ public class DialogueManager : MonoBehaviour
     {
         EnableDialogueUI(false);
         sentences.Clear();
+        dialogueInProgress = true;
     }
 
 

@@ -20,14 +20,17 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp("space") && inDialogueTriggerRange && !dialogueOccured)
+        if (!dialogueOccured)
         {
-            dialogueOccured = true;
+            if (inDialogueTriggerRange && Input.GetKeyUp(KeyCode.Return))
+            {
+                dialogueOccured = true;
 
-            dialogueManager.AddDialogue(dialogue);
-            dialogueManager.StartDialogue();
+                dialogueManager.AddDialogue(dialogue);
+                dialogueManager.StartDialogue();
 
-        };
+            };
+        }
     }
 
 
