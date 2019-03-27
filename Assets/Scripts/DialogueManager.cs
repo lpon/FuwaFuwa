@@ -18,7 +18,6 @@ public class DialogueManager : MonoBehaviour
         lines = new Queue<Line>();
         dialogueInProgress = false;
         EnableDialogueUI(false);
-
     }
 
 
@@ -31,31 +30,30 @@ public class DialogueManager : MonoBehaviour
                 DisplayNextSentence();
             }
         }
-
     }
 
 
-    // Add multiple dialogues that will be processed one-at-a-time
-    public void AddDialogue(Dialogue dialogue)
+    public bool DialogueInProgress()
     {
-        foreach (Line line in dialogue.lines)
-        {
-            lines.Enqueue(line);
-        }
+        return dialogueInProgress;
     }
 
 
     // Method to process a single dialogue (from a single character at a time)
-    public void StartDialogue()
+    public void StartDialogue(Dialogue dialogue)
     {
+        dialogueInProgress = true;
         dialogueField.text = "";
         nameField.text = "";
         EnableDialogueUI(true);
 
+        foreach (Line line in dialogue.lines)
+        {
+            lines.Enqueue(line);
+        }
+
         // Display the first line of dialogue
         DisplayNextSentence();
-
-        dialogueInProgress = true;
     }
 
 
@@ -79,15 +77,15 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    void EndDialogue()
+    private void EndDialogue()
     {
         EnableDialogueUI(false);
         lines.Clear();
-        dialogueInProgress = true;
+        dialogueInProgress = false;
     }
 
 
-    void EnableDialogueUI(bool isEnabled)
+    private void EnableDialogueUI(bool isEnabled)
     {
         nameField.enabled = isEnabled;
         dialogueField.enabled = isEnabled;

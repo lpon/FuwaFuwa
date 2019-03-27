@@ -7,7 +7,6 @@ public class DialogueTrigger : MonoBehaviour
     private bool inDialogueTriggerRange;
     private bool dialogueOccured = false;
 
-
     // Assumes that there will only be one dialogue per DialogueTrigger
     public Dialogue dialogue;
 
@@ -18,6 +17,7 @@ public class DialogueTrigger : MonoBehaviour
         inDialogueTriggerRange = false;
     }
 
+
     private void Update()
     {
         if (!dialogueOccured)
@@ -25,11 +25,8 @@ public class DialogueTrigger : MonoBehaviour
             if (inDialogueTriggerRange && Input.GetKeyUp(KeyCode.Return))
             {
                 dialogueOccured = true;
-
-                dialogueManager.AddDialogue(dialogue);
-                dialogueManager.StartDialogue();
-
-            };
+                dialogueManager.StartDialogue(dialogue);
+            }
         }
     }
 
@@ -40,8 +37,8 @@ public class DialogueTrigger : MonoBehaviour
         {
             inDialogueTriggerRange = true;
         }
-
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {

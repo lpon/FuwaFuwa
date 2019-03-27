@@ -4,6 +4,7 @@ public class MainCharacterController : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+    DialogueManager dialogueManager;
 
     float horizontal;
     float vertical;
@@ -18,12 +19,16 @@ public class MainCharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
         canMove = true;
     }
 
 
     private void Update()
     {
+        canMove = !dialogueManager.DialogueInProgress();
+        Debug.Log(canMove);
+
         // Input is calculated in Update since it runs every frame and 
         //  therefore, will not miss registering a pressed key(as opposed to
         //  having key presses in FixedUpdate which does not run every frame)
@@ -42,14 +47,14 @@ public class MainCharacterController : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Move();
     }
 
 
     // Returns true iff input has been recieved
-    bool GetInput()
+    private bool GetInput()
     {
         // If the player cannot move then ignore all input
         // This will set the player to idle in the last direction stored
@@ -72,21 +77,21 @@ public class MainCharacterController : MonoBehaviour
     }
 
 
-    void UpdateDirection()
+    private void UpdateDirection()
     {
         xDirection = horizontal;
         yDirection = vertical;
     }
 
 
-    void AnimateMovement()
+    private void AnimateMovement()
     {
         animator.SetFloat("idleUp", yDirection);
         animator.SetFloat("idleRight", xDirection);
     }
 
 
-    void Move()
+    private void Move()
     {
         // Check for diagonal movement
         if (horizontal > 0 && vertical > 0)
