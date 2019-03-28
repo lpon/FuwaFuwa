@@ -7917,11 +7917,11 @@ MonoBehaviour:
     - characterName: ???
       text: WATCH OUT!
     - characterName: Katie
-      text: My guard dogs broke out of daycare!!!
+      text: My guard dogs broke out of guard dog daycare!!!
     - characterName: Katie
       text: Don't let them get you, otherwise...
     - characterName: Katie
-      text: YOU'LL REGRET IT!
+      text: '...YOU''LL REGRET IT!'
 --- !u!61 &119034648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24294,13 +24294,13 @@ MonoBehaviour:
     - characterName: Girl
       text: '.......................'
     - characterName: Girl
-      text: Actually, nevemind! It's not important.
+      text: Actually, nevemind! It's not that important.
     - characterName: Boy
-      text: '...Are you sure? You can ask me!'
+      text: '...Are you sure? Cause it seems like something was on your mind...'
     - characterName: Girl
-      text: Well... I was wondering...
+      text: Well... it's just that...
     - characterName: Girl
-      text: ifyouwanttogotothedancewithme .. ._.
+      text: iwaswonderingifyouwanttogotothedancewithme ._.
 --- !u!61 &1405821779
 BoxCollider2D:
   m_ObjectHideFlags: 0
