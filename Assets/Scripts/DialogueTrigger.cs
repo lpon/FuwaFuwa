@@ -5,9 +5,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool inDialogueTriggerRange;
-    private bool dialogueOccured = false;
+    private bool dialogueOccured;
 
-    // Assumes that there will only be one dialogue per DialogueTrigger
     public Dialogue dialogue;
 
 
@@ -15,6 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
         inDialogueTriggerRange = false;
+        dialogueOccured = false;
     }
 
 

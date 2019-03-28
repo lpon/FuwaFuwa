@@ -27,7 +27,6 @@ public class MainCharacterController : MonoBehaviour
     private void Update()
     {
         canMove = !dialogueManager.DialogueInProgress();
-        Debug.Log(canMove);
 
         // Input is calculated in Update since it runs every frame and 
         //  therefore, will not miss registering a pressed key(as opposed to
