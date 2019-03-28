@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class StartDialogueTrigger : MonoBehaviour
+public class InstantDialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool dialogueOccured;
@@ -17,8 +17,6 @@ public class StartDialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected");
-
         if (collision.CompareTag("Girl"))
         {
             if (!dialogueOccured)

@@ -8,6 +8,9 @@ public class DialogueManager : MonoBehaviour
     private Queue<Line> lines;
     private bool dialogueInProgress;
 
+    public bool endingReached;
+    public bool endingDialogueDone;
+
     public Text nameField;
     public Text dialogueField;
     public GameObject dialogueUI;
@@ -16,7 +19,11 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         lines = new Queue<Line>();
+
         dialogueInProgress = false;
+        endingDialogueDone = false;
+        endingReached = false;
+
         EnableDialogueUI(false);
     }
 
@@ -43,6 +50,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         dialogueInProgress = true;
+
         dialogueField.text = "";
         nameField.text = "";
         EnableDialogueUI(true);
@@ -82,6 +90,11 @@ public class DialogueManager : MonoBehaviour
         EnableDialogueUI(false);
         lines.Clear();
         dialogueInProgress = false;
+
+        if (endingReached)
+        {
+            endingDialogueDone = true;
+        }
     }
 
 

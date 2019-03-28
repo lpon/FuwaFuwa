@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+
         inDialogueTriggerRange = false;
         dialogueOccured = false;
     }
@@ -36,6 +36,11 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Girl"))
         {
             inDialogueTriggerRange = true;
+
+            if (transform.parent.CompareTag("Boy"))
+            {
+                dialogueManager.endingReached = true;
+            }
         }
     }
 
