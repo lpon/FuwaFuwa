@@ -14,6 +14,7 @@ public class MainCharacterController : MonoBehaviour
 
     public float speed;
     public bool canMove;
+    public bool movementOverride;
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class MainCharacterController : MonoBehaviour
 
     private void Update()
     {
-        if (dialogueManager.endingDialogueDone)
+        if (movementOverride)
         {
             canMove = false;
         }

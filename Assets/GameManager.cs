@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private DialogueManager dialogueManager;
-
+ 
+    public GameObject canvas;
     public GameObject panel;
     public bool endReached;
 
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canvas.SetActive(true);
         endReached = false;
         dialogueManager = FindObjectOfType<DialogueManager>();
     }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Girl
   - Boy
+  - ObstacleIntro
+  - Katie
   layers:
   - Default
   - TransparentFX

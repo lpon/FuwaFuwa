@@ -33,6 +33,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Standard Collision with " + collision);
+        Debug.Log("Standard Collision with " + transform.name);
+
+
         if (collision.CompareTag("Girl"))
         {
             inDialogueTriggerRange = true;

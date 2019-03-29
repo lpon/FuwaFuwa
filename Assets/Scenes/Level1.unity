@@ -7893,9 +7893,10 @@ GameObject:
   - component: {fileID: 119034649}
   - component: {fileID: 119034648}
   - component: {fileID: 119034647}
+  - component: {fileID: 119034651}
   m_Layer: 0
   m_Name: ObstacleDialogueTrigger
-  m_TagString: Untagged
+  m_TagString: ObstacleIntro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7915,13 +7916,7 @@ MonoBehaviour:
   dialogue:
     lines:
     - characterName: ???
-      text: WATCH OUT!
-    - characterName: Katie
-      text: My guard dogs broke out of guard dog daycare!!!
-    - characterName: Katie
-      text: Don't let them get you, otherwise...
-    - characterName: Katie
-      text: '...YOU''LL REGRET IT!'
+      text: Watch out!!!
 --- !u!61 &119034648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7983,6 +7978,249 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119034651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119034646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7afa77392724622a40a770c51aa4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  katie: {fileID: 403929038}
+--- !u!1001 &381294401
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 403929041}
+    m_Modifications:
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[0].characterName
+      value: Katie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[0].text
+      value: 'Oh god.... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[1].text
+      value: They're EVERYWHERE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[2].text
+      value: SAVE YOURSELF!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[1].characterName
+      value: Katie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128758, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: dialogue.lines.Array.data[2].characterName
+      value: Katie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d552771f9ddea45ae97c17d0dc01b3d7, type: 3}
+--- !u!4 &381294402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 381294401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &403929038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 403929041}
+  - component: {fileID: 403929040}
+  - component: {fileID: 403929039}
+  - component: {fileID: 403929043}
+  - component: {fileID: 403929042}
+  - component: {fileID: 403929044}
+  m_Layer: 0
+  m_Name: Katie
+  m_TagString: Katie
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &403929039
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!212 &403929040
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: c791bda72e4e64d61bf5f92a64ae2e57, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &403929041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 381294402}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &403929042
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 643942c0548d54ed3b1dc3045d5d4974, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &403929043
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1, y: 1.625}
+      - {x: 0.75, y: 1.75}
+      - {x: -0.875, y: 1.75}
+      - {x: -1, y: 1.6875}
+      - {x: -1, y: -0.3125}
+      - {x: -0.9375, y: -0.8125}
+      - {x: -0.4375, y: -1.5625}
+      - {x: 0.375, y: -1.5625}
+      - {x: 0.5625, y: -1.5}
+      - {x: 0.875, y: -0.6875}
+      - {x: 1, y: 0.125}
+--- !u!114 &403929044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403929038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689d97632fd1340a1b2461dd62a8199f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    lines:
+    - characterName: Katie
+      text: My guard dogs broke out of daycare!!!
+    - characterName: Katie
+      text: Don't let them get you! They're very VERY ferocious...
+    - characterName: Katie
+      text: BE AFRAID!!!
 --- !u!1 &423274563
 GameObject:
   m_ObjectHideFlags: 0
@@ -8691,8 +8929,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ed6f963c7fb774513b1d3b9c5b493207, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 6aed3656d33814c8b8b4f51e17f10a09, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -24235,98 +24473,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1405821776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1405821777}
-  - component: {fileID: 1405821779}
-  - component: {fileID: 1405821778}
-  m_Layer: 0
-  m_Name: DialogueTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1405821777
+--- !u!4 &1405821777 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8832233634048857892}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405821776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1645737566}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1405821778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405821776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5af2f54e18c4c97a24f108170879cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    lines:
-    - characterName: Boy
-      text: "Hey!\t"
-    - characterName: Boy
-      text: I was just about to head out for the day...
-    - characterName: Boy
-      text: My dad left work early to take me suit shopping for the dance tomorrow!
-    - characterName: Boy
-      text: What's up?
-    - characterName: Girl
-      text: Oh, well... I was just wondering...
-    - characterName: Girl
-      text: '.......................'
-    - characterName: Girl
-      text: Actually, nevemind! It's not that important.
-    - characterName: Boy
-      text: '...Are you sure? Cause it seems like something was on your mind...'
-    - characterName: Girl
-      text: Well... it's just that...
-    - characterName: Girl
-      text: iwaswonderingifyouwanttogotothedancewithme ._.
---- !u!61 &1405821779
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405821776}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.86}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.51, y: 1.98}
-  m_EdgeRadius: 0
 --- !u!1 &1442937230
 GameObject:
   m_ObjectHideFlags: 0
@@ -24345,7 +24497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1442937231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24465,7 +24617,7 @@ MonoBehaviour:
     - characterName: Girl
       text: Oh no, he rushed out of class!
     - characterName: Girl
-      text: But I have to ask him...
+      text: But I have to ask him today...
     - characterName: Girl
       text: The dance is tomorrow!
     - characterName: Girl
@@ -24676,6 +24828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5b6f4f10ca84ece8d899ce24463990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1442937230}
   panel: {fileID: 7458326}
   endReached: 0
 --- !u!1 &1849028743
@@ -24762,3 +24915,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &8832233634048857892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1645737566}
+    m_Modifications:
+    - target: {fileID: 8832233633222128756, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_Name
+      value: DialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832233633222128757, guid: d552771f9ddea45ae97c17d0dc01b3d7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d552771f9ddea45ae97c17d0dc01b3d7, type: 3}

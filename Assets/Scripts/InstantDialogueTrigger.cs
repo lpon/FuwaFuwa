@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InstantDialogueTrigger : MonoBehaviour
 {
@@ -15,15 +14,27 @@ public class InstantDialogueTrigger : MonoBehaviour
         dialogueOccured = false;
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Girl"))
+        if (collision.CompareTag("Katie"))
+        {
+            return;
+        } else if (collision.CompareTag("Girl"))
         {
             if (!dialogueOccured)
             {
-                dialogueOccured = true;
                 dialogueManager.StartDialogue(dialogue);
             }
+        }
+    }
+
+
+    public void TriggerDialogueManually()
+    {
+        if (!dialogueManager.DialogueInProgress())
+        {
+            dialogueManager.StartDialogue(dialogue);
         }
     }
 }

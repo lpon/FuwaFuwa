@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    private MainCharacterController mainCharacter;
     private Queue<Line> lines;
     private bool dialogueInProgress;
 
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        mainCharacter = FindObjectOfType<MainCharacterController>();
         lines = new Queue<Line>();
 
         dialogueInProgress = false;
@@ -94,6 +96,7 @@ public class DialogueManager : MonoBehaviour
         if (endingReached)
         {
             endingDialogueDone = true;
+            mainCharacter.movementOverride = true;
         }
     }
 
