@@ -7913,6 +7913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c400ffa5e21294d04bffa3891d816386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueOccured: 0
   dialogue:
     lines:
     - characterName: ???
@@ -7990,7 +7991,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7afa77392724622a40a770c51aa4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instantDialogueTrigger: {fileID: 119034647}
   katie: {fileID: 403929038}
+--- !u!1 &125560735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125560736}
+  - component: {fileID: 125560737}
+  m_Layer: 0
+  m_Name: ShibaFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125560736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125560735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1819763, y: -68.21884, z: 0.59930015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125560737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125560735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1150c3b780a042a78a50b297c8c2001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shibaPrefab: {fileID: 4112679496330413990, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
+    type: 3}
+  minSpawnTime: 1
+  maxSpawnTime: 5
+  offsetBoundary: 1
+  spawnOffset: 2
 --- !u!1001 &381294401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8213,6 +8264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689d97632fd1340a1b2461dd62a8199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shibaFactoryController: {fileID: 125560737}
   dialogue:
     lines:
     - characterName: Katie
@@ -8733,6 +8785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   canMove: 1
+  movementOverride: 0
 --- !u!60 &725170506
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24610,6 +24663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c400ffa5e21294d04bffa3891d816386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueOccured: 0
   dialogue:
     lines:
     - characterName: 

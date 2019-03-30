@@ -6,6 +6,7 @@ public class KatieDialogueTrigger : MonoBehaviour
     private bool dialogueOccured;
     private MainCharacterController mainCharacter;
 
+    public ShibaFactoryController shibaFactoryController;
     public Dialogue dialogue;
 
 
@@ -21,7 +22,8 @@ public class KatieDialogueTrigger : MonoBehaviour
         if (dialogueOccured && !dialogueManager.DialogueInProgress())
         {
             mainCharacter.movementOverride = false;
-        }
+            shibaFactoryController.StartShibaFactory();
+        } 
     }
 
     public void TriggerDialogue()

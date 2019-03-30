@@ -4,8 +4,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool inDialogueTriggerRange;
-    private bool dialogueOccured;
 
+    public bool dialogueOccured;
     public Dialogue dialogue;
 
 

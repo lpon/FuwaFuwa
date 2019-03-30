@@ -3,8 +3,8 @@
 public class InstantDialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
-    private bool dialogueOccured;
 
+    public bool dialogueOccured;
     public Dialogue dialogue;
 
 
@@ -24,17 +24,9 @@ public class InstantDialogueTrigger : MonoBehaviour
         {
             if (!dialogueOccured)
             {
+                dialogueOccured = true;
                 dialogueManager.StartDialogue(dialogue);
             }
-        }
-    }
-
-
-    public void TriggerDialogueManually()
-    {
-        if (!dialogueManager.DialogueInProgress())
-        {
-            dialogueManager.StartDialogue(dialogue);
         }
     }
 }
