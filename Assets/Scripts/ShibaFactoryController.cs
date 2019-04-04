@@ -1,51 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShibaFactoryController : MonoBehaviour
 {
-    private bool alreadyStarted;
-
-    public GameObject shibaPrefab;
-    public float minSpawnTime;
-    public float maxSpawnTime;
-    public float offsetBoundary = 1f;
-    public float spawnOffset;
-
+    private bool started;
+    public ShibaFactory shibaFactory;
 
     private void Start()
     {
-        alreadyStarted = false;
+        started = false;
     }
 
-
-    // Start is called before the first frame update
-    public void StartShibaFactory()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!alreadyStarted)
+        if (collision.CompareTag("Girl") && gameObject.CompareTag("startFactory") && !started)
         {
-            alreadyStarted = true;
-            InvokeRepeating("SpawnShiba", 0f, Random.Range(minSpawnTime, maxSpawnTime));
+            started = true;
+            shibaFactory.StartShibaFactory();
         }
-    }
-
-
-    void SpawnShiba()
-    {
-        Camera cameraMain = Camera.main;
-        float rightBoundary = (cameraMain.aspect * cameraMain.orthographicSize) - 
-                                offsetBoundary; // width/2
-        float leftBoundary = -rightBoundary + offsetBoundary;
-        float spawnPoint = cameraMain.transform.position.y + cameraMain.orthographicSize + spawnOffset;
-
-        Vector3 spawnPosition = new Vector3(
-                                            Random.Range(leftBoundary, rightBoundary),
-                                            spawnPoint,
-                                            shibaPrefab.transform.position.z
-                                            );
-
-        GameObject newShiba = Instantiate(shibaPrefab, spawnPosition, Quaternion.identity);
-
-        newShiba.GetComponent<Animator>().SetBool("walk", true);
+        else if ((collision.CompareTag("Girl") && gameObject.CompareTag("endFactory")))
+        {
+            shibaFactory.StopShibaFactory();
+        }
     }
 }

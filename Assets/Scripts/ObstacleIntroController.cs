@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleIntroController : MonoBehaviour
 {
     private DialogueManager dialogueManager;
+    private bool collisionOccured;
 
     public InstantDialogueTrigger instantDialogueTrigger;
     public GameObject katie;
@@ -13,6 +14,7 @@ public class ObstacleIntroController : MonoBehaviour
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
+        collisionOccured = false;
     }
 
 
@@ -26,8 +28,9 @@ public class ObstacleIntroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Girl"))
+        if (collision.CompareTag("Girl") && !collisionOccured)
         {
+            collisionOccured = true;
             collision.GetComponent<MainCharacterController>().movementOverride = true;
         }
     }

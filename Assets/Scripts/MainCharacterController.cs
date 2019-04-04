@@ -22,6 +22,7 @@ public class MainCharacterController : MonoBehaviour
         animator = GetComponent<Animator>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         canMove = true;
+        movementOverride = false;
     }
 
 

@@ -4,6 +4,7 @@ public class KatieDialogueTrigger : MonoBehaviour
 {
     private DialogueManager dialogueManager;
     private bool dialogueOccured;
+    private bool releasedCharacter;
     private MainCharacterController mainCharacter;
 
     public ShibaFactoryController shibaFactoryController;
@@ -15,16 +16,19 @@ public class KatieDialogueTrigger : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
         mainCharacter = FindObjectOfType<MainCharacterController>();
         dialogueOccured = false;
+        releasedCharacter = false;
     }
 
     private void Update()
     {
-        if (dialogueOccured && !dialogueManager.DialogueInProgress())
+        if (dialogueOccured && !dialogueManager.DialogueInProgress() && !releasedCharacter)
         {
             mainCharacter.movementOverride = false;
-            shibaFactoryController.StartShibaFactory();
+            releasedCharacter = true;
         } 
     }
+
+
 
     public void TriggerDialogue()
     {

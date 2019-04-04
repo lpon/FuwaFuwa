@@ -8,6 +8,8 @@ TagManager:
   - Boy
   - ObstacleIntro
   - Katie
+  - startFactory
+  - endFactory
   layers:
   - Default
   - TransparentFX

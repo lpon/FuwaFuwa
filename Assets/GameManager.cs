@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
     private DialogueManager dialogueManager;
  
     public GameObject canvas;
-    public GameObject panel;
     public bool endReached;
 
 
@@ -24,8 +23,7 @@ public class GameManager : MonoBehaviour
     {
         if (dialogueManager.endingDialogueDone)
         {
-            panel.GetComponent<Animator>().SetBool("ended", true);
-            Invoke("LoadEndingScene", 2f);
+            Invoke("LoadEndingScene", 1f);
         }
     }
 

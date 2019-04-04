@@ -17,10 +17,7 @@ public class InstantDialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Katie"))
-        {
-            return;
-        } else if (collision.CompareTag("Girl"))
+        if (collision.CompareTag("Girl"))
         {
             if (!dialogueOccured)
             {
