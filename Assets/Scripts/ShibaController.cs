@@ -30,8 +30,10 @@ public class ShibaController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log("Collision detected");
         if (collision.CompareTag("Girl"))
         {
+            Debug.Log("Girl Collision");
             collision.GetComponent<MainCharacterController>().movementOverride = true;
             animator.SetBool("walk", false);
             speed = 0;
