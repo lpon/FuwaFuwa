@@ -7,17 +7,21 @@ public class ShibaFactory : MonoBehaviour
     private bool alreadyStarted;
 
     public GameObject shibaPrefab;
+    public AudioSource audioSource;
+
     public float minSpawnTime;
     public float maxSpawnTime;
     public float offsetBoundary = 1f;
     public float spawnOffset;
     public bool stopped;
+    public float fadeTime;
 
 
     private void Start()
     {
         alreadyStarted = false;
         stopped = false;
+        audioSource.enabled = false;
     }
 
 
@@ -27,6 +31,7 @@ public class ShibaFactory : MonoBehaviour
         {
             alreadyStarted = true;
             InvokeRepeating("SpawnShiba", 0f, Random.Range(minSpawnTime, maxSpawnTime));
+            audioSource.enabled = true;
         }
     }
 
@@ -56,8 +61,7 @@ public class ShibaFactory : MonoBehaviour
     public void StopShibaFactory()
     {
         stopped = true;
-
+        StartCoroutine(AudioController.FadeOut(audioSource, fadeTime));
     }
-
 
 }

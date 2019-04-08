@@ -7909,6 +7909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125560736}
   - component: {fileID: 125560737}
+  - component: {fileID: 125560738}
   m_Layer: 0
   m_Name: ShibaFactory
   m_TagString: Untagged
@@ -7944,11 +7945,109 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shibaPrefab: {fileID: 4112679496330413990, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
     type: 3}
-  minSpawnTime: 0.5
-  maxSpawnTime: 1.5
+  audioSource: {fileID: 125560738}
+  minSpawnTime: 0.38
+  maxSpawnTime: 1.35
   offsetBoundary: 1
   spawnOffset: 2
   stopped: 0
+  fadeTime: 8
+--- !u!82 &125560738
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125560735}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 72055cf3e68d745afbc3a410b3030168, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &170095950
 GameObject:
   m_ObjectHideFlags: 0
@@ -15812,8 +15911,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.88}
-  m_Size: {x: 2.14, y: 3.04}
+  m_Offset: {x: 0, y: 0.78}
+  m_Size: {x: 2.25, y: 3.29}
   m_Direction: 0
 --- !u!114 &403929044
 MonoBehaviour:
@@ -16181,7 +16280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539202781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4084154, y: 10.28, z: 0.026432542}
+  m_LocalPosition: {x: 1.4084154, y: 7.27, z: 0.026432542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403929041}
@@ -16398,6 +16497,7 @@ GameObject:
   - component: {fileID: 725170505}
   - component: {fileID: 725170510}
   - component: {fileID: 725170506}
+  - component: {fileID: 725170511}
   m_Layer: 0
   m_Name: Girl
   m_TagString: Girl
@@ -16538,6 +16638,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &725170511
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725170504}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7556a978741c74b9c9834fe96faf7d89, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.83
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &956744454
 GameObject:
   m_ObjectHideFlags: 0
@@ -32206,7 +32402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -187.4}
+  m_AnchoredPosition: {x: 269.6, y: -187.4}
   m_SizeDelta: {x: 152.94, y: 32.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183017644
@@ -32299,75 +32495,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183017642}
   m_CullTransparentMesh: 0
---- !u!1001 &1216239544
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4112679496330413990, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_Name
-      value: Shiba
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7738247975595223446, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a83eb5f40f78a4aa2a5f418f0c6de8b6, type: 3}
 --- !u!1 &1287604840
 GameObject:
   m_ObjectHideFlags: 0
@@ -40182,14 +40309,12 @@ MonoBehaviour:
   dialogueOccured: 0
   dialogue:
     lines:
-    - characterName: 
-      text: "\t*RING RING RING*"
     - characterName: Girl
       text: Oh no... That's the bell.
     - characterName: Girl
       text: And the dance is tomorrow...
     - characterName: Girl
-      text: I have to do it today!
+      text: I have to ask him today!
 --- !u!61 &1447750856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40224,8 +40349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447750854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -49.609074, z: 1.0409085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -55.5, z: 1.0409085}
+  m_LocalScale: {x: 1, y: 1.775, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -40348,8 +40473,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.88}
-  m_Size: {x: 2.14, y: 3.04}
+  m_Offset: {x: 0, y: 1.16}
+  m_Size: {x: 2.42, y: 2.83}
   m_Direction: 0
 --- !u!50 &1645737568
 Rigidbody2D:
