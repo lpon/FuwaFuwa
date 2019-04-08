@@ -18,7 +18,7 @@ public class LoadCredits : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey && !inputRecieved)
+        if (Input.anyKeyDown && !inputRecieved)
         {
             animator.SetBool("loadCreditScene", true);
             StartCoroutine(AudioController.FadeOut(audioSource, fadeTime));

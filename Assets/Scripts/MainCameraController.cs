@@ -19,7 +19,7 @@ public class MainCameraController : MonoBehaviour
 
         // Prevent the camera following the character below the starting point 
         // and above the ending point
-        if (characterYPosition > -59f && characterYPosition < 60.5f)
+        if (characterYPosition > -59f && characterYPosition < 96f)
         {
             // Main Camera will follow the mainCharacter only along the y axis
             transform.position = new Vector3(

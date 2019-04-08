@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 225888163}
   audioSource: {fileID: 225888165}
-  fadeTime: 3
+  fadeTime: 8
 --- !u!95 &225888163
 Animator:
   serializedVersion: 3
